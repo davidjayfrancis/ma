@@ -1,6 +1,14 @@
-var regions = ["Americas", "APAC ", "EMEA"];
-var filters = false;
-var somefilters = {'Region': ['Americas','EMEA','APAC ']}
+//var regions = ["Americas", "APAC ", "EMEA"];
+var filters = false; 
+//var somefilters = {'Region': ['Americas','EMEA','APAC ']}
+
+changeFilter = function() {
+    if (filters === false ) {
+        filters = true
+    } else {
+        filters = false;
+    }
+}
 
 var tabulate = function (data,columns) {
   var table = d3.select('#container').append('table')
@@ -18,7 +26,7 @@ var tabulate = function (data,columns) {
     if (filters) {
         var rows = tbody.selectAll('tr')
             .data(data.filter(function(entry) {
-
+                entry['Region'] == 'Americas'; //I SHOULD BE ABLE TO DO THIS DYNAMICALLY!! HOW?!?!?!?!?! :..(
             }))
             .enter()
           .append('tr')
